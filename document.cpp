@@ -39,5 +39,5 @@ void Document::Print()
 	{
 		std::cout << data[i];
 	}
-	std::cout << std::endl << "$$$END$$$";
+	std::cout << std::endl << "$$$END$$$" << std::endl;
 }

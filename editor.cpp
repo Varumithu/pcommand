@@ -28,6 +28,7 @@ void Editor::Undo() {
 	if (DoneCommands.size() > 0){
 
 		command = DoneCommands.back();
+		UndoneCommands.push_back(command);
 		DoneCommands.pop_back();
 		command->Undo();
 	}
@@ -52,7 +53,6 @@ void Editor::Append(std::string& str) {
 
 void Editor::Print()
 {
-	clear_undone();
 	doc.Print();
 }
 
