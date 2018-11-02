@@ -34,8 +34,10 @@ char& Document::operator [] (size_t x) {
 
 void Document::Print()
 {
+	std::cout << "$$$BEGIN$$$" << std::endl;
 	for (size_t i = 0; i < data.size(); ++i)
 	{
-		std::cout << "$$$BEGIN$$$" << std::endl << data[i] << std::endl << "$$$END$$$";
+		std::cout << data[i];
 	}
+	std::cout << std::endl << "$$$END$$$";
 }

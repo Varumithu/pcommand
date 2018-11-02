@@ -44,7 +44,7 @@ void Editor::Redo() {
 
 void Editor::Append(std::string& str) {
 	clear_undone();
-	command = new InsertCommand(doc.size() - 1, str);
+	command = new InsertCommand(doc.size(), str);
 	command->setDocument(&doc);
 	command->Execute();
 	DoneCommands.push_back(command);
