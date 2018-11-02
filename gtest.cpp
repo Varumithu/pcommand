@@ -23,6 +23,10 @@ TEST(EditorTesting, AppendUndoRedoTest) {
 	edit.Print();
 }
 
+TEST(EditorTesting, CopyPasteTest) {
+	
+}
+
 int main(int argc, char** argv)
 {
 	::testing::InitGoogleTest(&argc, argv);

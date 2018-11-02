@@ -30,7 +30,8 @@ public:
 
 class CopyCommand : public Command {
     size_t ind1, ind2;
+    std::string& clipboard;
 public:
-    CopyCommand(size_t ind1, size_t ind2) : ind1(ind1), ind2(ind2) {}
+    CopyCommand(size_t ind1, size_t ind2, std::string& clipboard) : ind1(ind1), ind2(ind2), clipboard(clipboard) {}
     void Execute();
 };
