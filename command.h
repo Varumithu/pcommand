@@ -28,14 +28,9 @@ public:
 	void Undo();
 };
 
-class AppendCommand : public Command
-{
-	size_t ind;
-	std::string str;
+class CopyCommand : public Command {
+    size_t ind1, ind2;
 public:
-	AppendCommand(size_t _ind, const std::string & _str) : ind(_ind), str(_str) {}
-
-	void Execute();
-	//	void Redo();
-	void Undo();
+    CopyCommand(size_t ind1, size_t ind2) : ind1(ind1), ind2(ind2) {}
+    void Execute();
 };

@@ -18,6 +18,7 @@ class Editor
 	Document doc;
 	std::vector<Command*> DoneCommands, UndoneCommands;
 	Command* command;
+	std::string clipboard;
 	void clear_undone();
 public:
 	void Insert(size_t ind, std::string str);
