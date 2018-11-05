@@ -34,4 +34,14 @@ class CopyCommand : public Command {
 public:
     CopyCommand(size_t ind1, size_t ind2, std::string& clipboard) : ind1(ind1), ind2(ind2), clipboard(clipboard) {}
     void Execute();
+	void Undo() {}
+};
+
+class PasteCommand : public Command {
+	size_t dest;
+	std::string& clipboard;
+public:
+	PasteCommand(size_t dest, std::string& clipboard) : dest(dest), clipboard(clipboard) {}
+	void Execute();
+	void Undo();
 };

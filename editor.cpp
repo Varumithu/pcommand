@@ -5,7 +5,16 @@
 #include "editor.h"
 
 
+void Editor::Copy(size_t ind1, size_t ind2) {
+	command = new CopyCommand(ind1, ind2, clipboard);
+	command->setDocument(&doc);
+	command->Execute();
+}
 
+void Editor::Paste(size_t dest) {
+	clear_undone();
+	Insert(dest, clipboard);
+}
 
 void Editor::clear_undone() {
 	while (UndoneCommands.size() > 0) {

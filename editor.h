@@ -23,7 +23,8 @@ class Editor
 public:
 	void Insert(size_t ind, std::string str);
 
-
+	void Copy(size_t ind1, size_t ind2);
+	void Paste(size_t dest);
 	void Undo();
 	void Redo();
 	void Print();
