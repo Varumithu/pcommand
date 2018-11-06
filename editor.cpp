@@ -62,7 +62,7 @@ void Editor::Append(std::string& str) {
 
 void Editor::Print()
 {
-	doc.Print();
+	std::cout << "document_start-->" << doc << std::endl;
 }
 
 

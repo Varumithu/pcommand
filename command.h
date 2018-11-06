@@ -7,13 +7,13 @@
 class Command
 {
 protected:
-	Document * doc;
+	std::string * doc;
 public:
 	virtual ~Command() {}
 	virtual void Execute() = 0;
 	virtual void Undo() = 0;
 //	virtual void Redo() = 0;
-	void setDocument(Document * _doc);
+	void setDocument(std::string * _doc);
 };
 
 class InsertCommand : public Command

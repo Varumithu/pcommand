@@ -1,7 +1,7 @@
 #include "editor.h"
 
 
-void Command::setDocument(Document * _doc) {
+void Command::setDocument(std::string * _doc) {
 	doc = _doc;
 }
 

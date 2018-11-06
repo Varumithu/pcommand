@@ -3,12 +3,12 @@
 
 void InsertCommand::Execute()
 {
-	doc->Insert(ind, str);
+	doc->insert(ind, str);
 }
 
 void InsertCommand::Undo()
 {
-	doc->Remove(ind, ind + str.size() - 1);
+	doc->erase(ind, ind + str.size());
 }
 
 

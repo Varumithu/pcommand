@@ -7,9 +7,9 @@
 void CopyCommand::Execute() {
     if (ind2 < doc->size()) {
         clipboard.clear();
-        for (size_t i = ind1; i < ind2 + 1; ++i) {
-            clipboard.push_back((*doc)[i]);
-        }
+        clipboard.reserve(doc->size());
+        doc->copy(clipboard.data(), ind2 - ind1 + 1, ind1);
+        clipboard.push_back('\0');
     }
     else {
         //TODO exceptions
@@ -18,7 +18,7 @@ void CopyCommand::Execute() {
 
 void PasteCommand::Execute() {
 	if (dest < doc->size()) {
-		doc->Insert(dest, clipboard);
+		doc->insert(dest, clipboard);
 	}
 	else {
 		//TODO exceptions
@@ -26,5 +26,5 @@ void PasteCommand::Execute() {
 }
 
 void PasteCommand::Undo() {
-	doc->Remove(dest, dest + clipboard.size() - 1);
+	doc->erase(doc->begin() + dest, doc->begin() + dest + clipboard.size() - 1);
 }

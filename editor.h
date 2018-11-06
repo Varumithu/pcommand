@@ -14,7 +14,7 @@
 
 class Editor
 {
-	Document doc;
+	std::string doc;
 	std::vector<Command*> DoneCommands, UndoneCommands;
 	Command* command;
 	std::string clipboard;
