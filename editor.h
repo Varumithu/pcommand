@@ -8,7 +8,6 @@
 #include "document.h"
 #include "command.h"
 
-const size_t arr_size = 10;
 
 
 

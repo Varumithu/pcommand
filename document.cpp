@@ -4,9 +4,6 @@
 #include <iostream>
 
 
-Document::Document() {
-	data.reserve(arr_size); // at least for 10 symbols
-}
 
 void Document::Insert(size_t ind, const std::string & str) {
 	if (ind > data.size()) {
