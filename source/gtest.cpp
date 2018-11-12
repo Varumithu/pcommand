@@ -1,8 +1,11 @@
 #include <gtest/gtest.h>
 
-#include "editor.h"
-#include "parser.h"
+#include "../header/editor.h"
+#include "../header/parser.h"
 
+#include <sstream>
+#include <string>
+#include <iostream>
 
 TEST(EditorTesting, InsertTest) {
 	Editor edit;
@@ -42,6 +45,12 @@ TEST(EditorTesting, ParsingTest) {
 	std::string blah{"blah"};
 	edit.Append(blah);
 	edit.Append(" ");
+	edit.Print();
+    std::istringstream input_copy("copy 0 3");
+	test.parse(input_copy);
+    std::istringstream input_paste("paste 4");
+    test.parse(input_paste);
+    edit.Print();
 }
 
 int main(int argc, char** argv)

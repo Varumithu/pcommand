@@ -2,7 +2,7 @@
 // Created by valmit on 02/11/18.
 //
 
-#include "command.h"
+#include "../header/command.h"
 
 void CopyCommand::Execute() {
     if (ind2 < doc->size()) {

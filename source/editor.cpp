@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-#include "editor.h"
+#include "../header/editor.h"
 
 
 void Editor::Copy(const size_t ind1, const size_t ind2) {
