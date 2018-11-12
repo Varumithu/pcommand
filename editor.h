@@ -5,7 +5,6 @@
 #include <iostream>
 #include <vector>
 
-#include "document.h"
 #include "command.h"
 
 
@@ -20,14 +19,14 @@ class Editor
 	std::string clipboard;
 	void clear_undone();
 public:
-	void Insert(size_t ind, std::string str);
+	void Insert(const size_t ind, const std::string& str);
 
-	void Copy(size_t ind1, size_t ind2);
-	void Paste(size_t dest);
+	void Copy(const size_t ind1, const size_t ind2);
+	void Paste(const size_t dest);
 	void Undo();
 	void Redo();
 	void Print();
-	void Append(std::string& str);
+	void Append(const std::string& str);
 };
 
 

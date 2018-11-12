@@ -5,13 +5,13 @@
 #include "editor.h"
 
 
-void Editor::Copy(size_t ind1, size_t ind2) {
+void Editor::Copy(const size_t ind1, const size_t ind2) {
 	command = new CopyCommand(ind1, ind2, clipboard);
 	command->setDocument(&doc);
 	command->Execute();
 }
 
-void Editor::Paste(size_t dest) {
+void Editor::Paste(const size_t dest) {
 	clear_undone();
 	Insert(dest, clipboard);
 }
@@ -24,7 +24,7 @@ void Editor::clear_undone() {
 	}
 }
 
-void Editor::Insert(size_t ind, std::string str)
+void Editor::Insert(const size_t ind, const std::string& str)
 {
 	clear_undone();
 	command = new InsertCommand(ind, str);
@@ -52,7 +52,7 @@ void Editor::Redo() {
 	}
 }
 
-void Editor::Append(std::string& str) {
+void Editor::Append(const std::string& str) {
 	clear_undone();
 	command = new InsertCommand(doc.size(), str);
 	command->setDocument(&doc);

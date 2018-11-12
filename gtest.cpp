@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "editor.h"
+#include "parser.h"
 
 
 TEST(EditorTesting, InsertTest) {
@@ -33,6 +34,14 @@ TEST(EditorTesting, CopyPasteTest) {
 	edit.Print();
 	edit.Undo();
 	edit.Print();
+}
+
+TEST(EditorTesting, ParsingTest) {
+	Editor edit;
+	parser test(edit);
+	std::string blah{"blah"};
+	edit.Append(blah);
+	edit.Append(" ");
 }
 
 int main(int argc, char** argv)

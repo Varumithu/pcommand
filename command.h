@@ -1,7 +1,5 @@
 #pragma once
 
-#include "document.h"
-
 #include <string>
 
 class Command
@@ -19,7 +17,7 @@ public:
 class InsertCommand : public Command
 {
 	size_t ind;
-	std::string str;
+	const std::string str;
 public:
 	InsertCommand(size_t _ind, const std::string& _str) : ind(_ind), str(_str) {}
 
@@ -39,9 +37,9 @@ public:
 
 class PasteCommand : public Command {
 	size_t dest;
-	std::string& clipboard;
+	const std::string& clipboard;
 public:
-	PasteCommand(size_t dest, std::string& clipboard) : dest(dest), clipboard(clipboard) {}
+	PasteCommand(size_t dest, const std::string& clipboard) : dest(dest), clipboard(clipboard) {}
 	void Execute();
 	void Undo();
 };
