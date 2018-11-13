@@ -8,7 +8,7 @@ void InsertCommand::Execute()
 
 void InsertCommand::Undo()
 {
-	doc->erase(ind, ind + str.size());
+	doc->erase(ind, str.size());
 }
 
 

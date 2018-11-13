@@ -21,9 +21,9 @@ class InsertCommand : public Command
 public:
 	InsertCommand(size_t _ind, const std::string& _str) : ind(_ind), str(_str) {}
 
-	void Execute();
+	void Execute() override;
 //	void Redo();
-	void Undo();
+	void Undo() override;
 };
 
 class CopyCommand : public Command {
@@ -31,8 +31,8 @@ class CopyCommand : public Command {
     std::string& clipboard;
 public:
     CopyCommand(size_t ind1, size_t ind2, std::string& clipboard) : ind1(ind1), ind2(ind2), clipboard(clipboard) {}
-    void Execute();
-	void Undo() {}
+    void Execute() override;
+	void Undo() override{}
 };
 
 class PasteCommand : public Command {
@@ -40,6 +40,15 @@ class PasteCommand : public Command {
 	const std::string& clipboard;
 public:
 	PasteCommand(size_t dest, const std::string& clipboard) : dest(dest), clipboard(clipboard) {}
-	void Execute();
-	void Undo();
+	void Execute() override;
+	void Undo() override;
+};
+
+class DeleteCommand : public Command {
+    size_t ind1, ind2;
+    std::string save_for_undo;
+public:
+    DeleteCommand(size_t ind1, size_t ind2) : ind1(ind1), ind2(ind2) {}
+    void Execute() override;
+    void Undo() override;
 };

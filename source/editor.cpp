@@ -5,6 +5,10 @@
 #include "../header/editor.h"
 
 
+void Editor::Erase(const size_t ind1, const size_t ind2) {
+    command = new
+}
+
 void Editor::Copy(const size_t ind1, const size_t ind2) {
 	command = new CopyCommand(ind1, ind2, clipboard);
 	command->setDocument(&doc);

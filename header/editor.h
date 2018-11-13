@@ -20,7 +20,7 @@ class Editor
 	void clear_undone();
 public:
 	void Insert(const size_t ind, const std::string& str);
-
+    void Erase(const size_t ind1, const size_t ind2);
 	void Copy(const size_t ind1, const size_t ind2);
 	void Paste(const size_t dest);
 	void Undo();

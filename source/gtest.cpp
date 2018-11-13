@@ -47,10 +47,14 @@ TEST(EditorTesting, ParsingTest) {
 	edit.Append(" ");
 	edit.Print();
     std::istringstream input_copy("copy 0 3");
+//    std::string ddd;
+//    input_copy >> ddd;
 	test.parse(input_copy);
-    std::istringstream input_paste("paste 4");
+    std::istringstream input_paste("paste 5");
     test.parse(input_paste);
     edit.Print();
+    std::istringstream input_insert("insert \"loli\" 5");
+    test.parse(input_insert);
 }
 
 int main(int argc, char** argv)

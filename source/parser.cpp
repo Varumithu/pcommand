@@ -22,15 +22,18 @@ void parse_insert(std::string& line, Editor& my_editor) {
     if (temp == -1) {
         //TODO exceptions
     }
-    line.erase(line.begin(), line.begin() + temp); // delete everything up to and including first "
+    line.erase(0, temp + 1); // delete everything up to and including first "
     std::string user_input;
-    std::getline(std::istringstream{line}, user_input, '"');
-    line.erase(line.begin(), line.begin() + line.find_first_of('\"')); // delete ecerything up to and including second "
-
+    std::getline(std::istringstream(line), user_input, '"');
+    line.erase(0, line.find_first_of('\"') + 1); // delete ecerything up to and including second "
+    std::istringstream(line) >> dest;
+    my_editor.Insert(dest, user_input);
 }
 
-void parse_erase(std::string& line, Editor& my_editor) {
-
+void parse_erase(std::string& line, Editor& my_editor) {//expect "ind1 ind2"
+    size_t ind1, ind2;
+    std::istringstream(line) >> ind1 >> ind2;
+    my_editor.
 }
 
 void parse_undo(std::string& line, Editor& my_editor) {
@@ -59,12 +62,12 @@ parser::parser(Editor& my_editor) : my_editor(my_editor) {
 void parser::parse(std::istream& input) {
 	std::getline(input, line);
     std::string first_token;
-    std::getline(std::istringstream{line}, first_token, ' ');
-    line.erase(line.begin(), line.begin() + first_token.size() - 1);
-
+    std::getline(std::istringstream(line), first_token, ' ');
+    line.erase(line.begin(), line.begin() + first_token.size() + 1);
     auto fooit = parsers.find(first_token);
     if (fooit == parsers.end()) {
         // TODO exceptions
+        first_token = "error"; // this is here so i can see in debug if condition is true
     }
     else {
         fooit->second(line, my_editor);

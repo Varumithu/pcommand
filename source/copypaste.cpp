@@ -7,9 +7,9 @@
 void CopyCommand::Execute() {
     if (ind2 < doc->size()) {
         clipboard.clear();
-        clipboard.reserve(doc->size());
-        doc->copy(clipboard.data(), ind2 - ind1 + 1, ind1);
-        clipboard.push_back('\0');
+        size_t substr_size = ind2 - ind1 + 1;
+        clipboard.resize(substr_size);
+        doc->copy(clipboard.data(), substr_size, ind1);
     }
     else {
         //TODO exceptions
