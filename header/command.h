@@ -1,6 +1,10 @@
 #pragma once
 
 #include <string>
+/*
+ * TODO one thing i nned to do is add broken_command flag to every command, so that if it throws exception it is then not undone/redone or whatever
+ *
+ */
 
 class Command
 {

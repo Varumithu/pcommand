@@ -55,6 +55,12 @@ TEST(EditorTesting, ParsingTest) {
     edit.Print();
     std::istringstream input_insert("insert \"loli\" 5");
     test.parse(input_insert);
+    std::istringstream input_undo("undo");
+    test.parse(input_undo);
+    edit.Print();
+    std::istringstream input_redo("redo");
+    test.parse(input_redo);
+    edit.Print();
 }
 
 int main(int argc, char** argv)

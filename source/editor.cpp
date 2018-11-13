@@ -6,7 +6,11 @@
 
 
 void Editor::Erase(const size_t ind1, const size_t ind2) {
-    command = new
+    clear_undone();
+	command = new DeleteCommand(ind1, ind2);
+    command->setDocument(&doc);
+    command->Execute();
+    DoneCommands.push_back(command);
 }
 
 void Editor::Copy(const size_t ind1, const size_t ind2) {
