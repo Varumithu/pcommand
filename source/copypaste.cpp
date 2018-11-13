@@ -3,6 +3,7 @@
 //
 
 #include "../header/command.h"
+#include "../header/copypaste_commands.h"
 
 void CopyCommand::Execute() {
     if (ind2 < doc->size()) {

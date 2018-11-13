@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-#include "../header/editor.h"
+#include "../header/editor-all.h"
 
 
 void Editor::Erase(const size_t ind1, const size_t ind2) {

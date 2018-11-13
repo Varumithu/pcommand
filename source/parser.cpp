@@ -33,7 +33,7 @@ void parse_insert(std::string& line, Editor& my_editor) {
 void parse_erase(std::string& line, Editor& my_editor) {//expect "ind1 ind2"
     size_t ind1, ind2;
     std::istringstream(line) >> ind1 >> ind2;
-    my_editor.Erase();
+    my_editor.Erase(ind1, ind2);
 }
 
 void parse_undo(std::string& line, Editor& my_editor) {

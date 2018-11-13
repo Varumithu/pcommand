@@ -1,5 +1,5 @@
 #include "../header/command.h"
-
+#include "../header/insert_command.h"
 
 void InsertCommand::Execute()
 {

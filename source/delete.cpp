@@ -3,6 +3,7 @@
 //
 
 #include "../header/command.h"
+#include "../header/delete_command.h"
 
 void DeleteCommand::Execute() {
     if (ind2 < doc->size() && ind1 < ind2) {
