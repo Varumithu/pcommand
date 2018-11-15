@@ -4,6 +4,7 @@
 
 #include "../header/command.h"
 #include "../header/delete_command.h"
+#include "../header/editor_exceptions.h"
 
 void DeleteCommand::Execute() {
     if (ind2 < doc->size() && ind1 < ind2) {
@@ -13,7 +14,7 @@ void DeleteCommand::Execute() {
         doc->erase(ind1, substr_size);
     }
     else {
-        //TODO exceptions
+        throw invalid_arguments();
     }
 }
 

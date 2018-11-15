@@ -20,7 +20,6 @@ void Editor::Copy(const size_t ind1, const size_t ind2) {
 }
 
 void Editor::Paste(const size_t dest) {
-	clear_undone();
 	Insert(dest, clipboard);
 }
 

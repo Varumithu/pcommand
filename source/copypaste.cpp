@@ -4,6 +4,8 @@
 
 #include "../header/command.h"
 #include "../header/copypaste_commands.h"
+#include "../header/editor_exceptions.h"
+
 
 void CopyCommand::Execute() {
     if (ind2 < doc->size()) {
@@ -13,7 +15,7 @@ void CopyCommand::Execute() {
         doc->copy(clipboard.data(), substr_size, ind1);
     }
     else {
-        //TODO exceptions
+        throw invalid_arguments();
     }
 }
 
@@ -22,7 +24,7 @@ void PasteCommand::Execute() {
 		doc->insert(dest, clipboard);
 	}
 	else {
-		//TODO exceptions
+		throw invalid_arguments();
 	}
 }
 

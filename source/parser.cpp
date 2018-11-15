@@ -1,4 +1,5 @@
 #include "../header/parser.h"
+#include "../header/editor_exceptions.h"
 
 #include <sstream>
 #include <string>
@@ -37,10 +38,16 @@ void parse_erase(std::string& line, Editor& my_editor) {//expect "ind1 ind2"
 }
 
 void parse_undo(std::string& line, Editor& my_editor) {
+    if (line.length() > 0) {
+        throw unparsable_arguments();
+    }
     my_editor.Undo();
 }
 
 void parse_redo(std::string& line, Editor& my_editor) {
+    if (line.length() > 0) {
+        throw unparsable_arguments();
+    }
     my_editor.Redo();
 }
 
@@ -66,8 +73,7 @@ void parser::parse(std::istream& input) {
     line.erase(line.begin(), line.begin() + first_token.size() + 1);
     auto fooit = parsers.find(first_token);
     if (fooit == parsers.end()) {
-        // TODO exceptions
-        first_token = "error"; // this is here so i can see in debug if condition is true
+        throw unknown_command();
     }
     else {
         fooit->second(line, my_editor);
