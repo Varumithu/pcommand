@@ -26,7 +26,7 @@ public:
 
 class unparsable_arguments : public parser_exception { // this is thrown if parsing functions cannot understand arguments
 public:
-    unparsable_arguments() { message = "could not understand argumennts" }
+    unparsable_arguments() { message = "could not understand argumennts"; }
 };
 
 class invalid_arguments : public editor_exception { //this is thrown by command member function

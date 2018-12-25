@@ -20,8 +20,8 @@ void parse_paste(std::string& line, Editor& my_editor) {
 void parse_insert(std::string& line, Editor& my_editor) {
     size_t dest;
     size_t temp = line.find_first_of('\"');
-    if (temp == -1) {
-        //TODO exceptions
+    if (temp == line.npos) {
+        throw unparsable_arguments();
     }
     line.erase(0, temp + 1); // delete everything up to and including first "
     std::string user_input;
@@ -70,7 +70,7 @@ void parser::parse(std::istream& input) {
 	std::getline(input, line);
     std::string first_token;
     std::getline(std::istringstream(line), first_token, ' ');
-    line.erase(line.begin(), line.begin() + first_token.size() + 1);
+    line.erase(line.begin(), line.begin() + first_token.size());
     auto fooit = parsers.find(first_token);
     if (fooit == parsers.end()) {
         throw unknown_command();

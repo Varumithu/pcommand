@@ -53,7 +53,7 @@ TEST(EditorTesting, ParsingTest) {
     std::istringstream input_paste("paste 5");
     test.parse(input_paste);
     edit.Print();
-    std::istringstream input_insert("insert \"loli\" 5");
+    std::istringstream input_insert("insert \"loli \" 5");
     test.parse(input_insert);
     std::istringstream input_undo("undo");
     test.parse(input_undo);
@@ -67,7 +67,4 @@ int main(int argc, char** argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
-
-
-
 }

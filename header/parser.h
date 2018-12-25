@@ -16,18 +16,3 @@ public:
 	void parse(std::istream& input);
     Editor& my_editor;
 };
-
-
-//namespace parsing {
-//    void parse_copy(std::string& line, Editor& my_editor);
-//
-//    void parse_paste(std::string& line, Editor& my_editor);
-//
-//    void parse_insert(std::string& line, Editor& my_editor);
-//
-//    void parse_erase(std::string& line, Editor& my_editor);
-//
-//    void parse_undo(std::string& line, Editor& my_editor);
-//
-//    void parse_redo(std::string& line, Editor& my_editor);
-//}
