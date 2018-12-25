@@ -47,8 +47,6 @@ TEST(EditorTesting, ParsingTest) {
 	edit.Append(" ");
 	edit.Print();
     std::istringstream input_copy("copy 0 3");
-//    std::string ddd;
-//    input_copy >> ddd;
 	test.parse(input_copy);
     std::istringstream input_paste("paste 5");
     test.parse(input_paste);

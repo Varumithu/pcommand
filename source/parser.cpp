@@ -71,11 +71,13 @@ void parser::parse(std::istream& input) {
     std::string first_token;
     std::getline(std::istringstream(line), first_token, ' ');
     line.erase(line.begin(), line.begin() + first_token.size());
-    auto fooit = parsers.find(first_token);
+    const auto fooit = parsers.find(first_token);
+    const auto& [name, func] = *fooit;
     if (fooit == parsers.end()) {
         throw unknown_command();
     }
     else {
+        func(line, my_editor);
         fooit->second(line, my_editor);
     }
 
